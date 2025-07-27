@@ -1,0 +1,241 @@
+.seller-profile-container_seller {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'Roboto', 'Inter', sans-serif;
+}
+
+.profile-main_seller {
+    width: 100%;
+    max-width: 1280px;
+}
+
+.profile-header_seller {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 20px 30px;
+    align-items: center;
+    margin-bottom: 50px;
+    border: 1px solid #e6e6e6;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.profile-avatar_seller {
+    grid-row: 1 / 3;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-avatar_seller img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info_seller {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+
+.seller-name_seller {
+    font-size: 25px;
+    font-weight: 700;
+    color: #212121;
+    margin: 0 0 10px 0;
+}
+
+.trust-label_seller {
+    font-size: 14px;
+    color: #868b94;
+    margin-bottom: 8px;
+}
+
+.trust-bar-container_seller {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trust-bar_seller {
+    width: 100%;
+    max-width: 350px;
+    height: 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.trust-level_seller {
+    height: 100%;
+    background-color: #7fd0f4;
+    border-radius: 8px;
+}
+
+.trust-score_seller {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.trust-score_seller .score {
+    color: #7fd0f4;
+    font-weight: 600;
+}
+
+.trust-score_seller .total {
+    color: #000;
+}
+
+.seller-stats_seller {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 20px 30px;
+    height: fit-content;
+}
+
+.seller-stats_seller > div {
+    flex: 1;
+}
+
+.seller-stats_seller p {
+    font-size: 14px;
+    color: #868b94;
+    margin: 0 0 8px 0;
+}
+
+.seller-stats_seller strong {
+    font-size: 24px;
+    color: #000;
+    font-weight: 700;
+}
+
+.products-section_seller {
+    margin-top: 40px;
+}
+
+.section-title_seller {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.product-filter-nav_seller {
+    display: flex;
+    gap: 30px;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.product-filter-nav_seller a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #868b94;
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.product-filter-nav_seller a.active_seller {
+    color: #000000;
+    border-bottom-color: #000000;
+}
+
+.products-header_seller {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.total-products_seller {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.product-grid_seller {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.product-card_seller {
+    position: relative;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: none;
+}
+
+.product-card_seller.show {
+    display: block;
+}
+
+.product-card_seller.sold-out_seller img {
+    filter: grayscale(80%);
+}
+
+.overlay_seller {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 230px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.product-card_seller img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.product-info_seller {
+    padding: 15px;
+}
+
+.product-name_seller {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.product-price_seller {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.product-meta_seller {
+    font-size: 13px;
+    color: #707070;
+    margin-bottom: 8px;
+}
+
+.tag_seller {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+}
+
+.safe-deal_seller {
+    background-color: #7fd0f4;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 - 관리자 계정 수정</title>
+<!-- 사이드바 CSS -->
+<link rel="stylesheet" th:href="@{/css/admin/style.css}">
+<!-- 페이지 타이틀 CSS -->
+<link rel="stylesheet" th:href="@{/css/admin/pageTitle.css}">
+<!-- 공통 CSS -->
+<link rel="stylesheet" th:href="@{/css/admin/dlatl.css}">
+
+<!-- 관리자 관리자 계정 관리 CSS -->
+<link rel="stylesheet" th:href="@{/css/admin/account/adminDetail.css}">
+<!-- 외부파일(jQuery, Font Awesome, favicon 등) -->
+<th:block th:replace="~{components/admin/external :: external}"></th:block>
+</head>
+
+<body>
+	<!-- 고정 사이드바 -->
+	<div th:replace="~{fragments/admin/admin_sidebar :: sidebar}"></div>
+	<!-- 상단 헤더 -->
+	<div th:replace="~{fragments/admin/admin_header :: header}"></div>
+
+	<div class="admin-wrapper">
+		<div class="main-content">
+			<!-- 페이지 타이틀 -->
+			<th:block th:replace="~{fragments/admin/admin_pageTitle :: pageTitle('계정 관리','관리자 계정 수정')}" />
+		
+		<div class="account-form-wrapper">
+		<!-- 개인정보 폼 -->
+		<form class="account-form" th:action="@{/admin/account/adminModifyProcess}" method="post" th:object="${adminDTO}">
+			<div class="account-form-section">기본정보</div>
+				
+				<!-- 번호 -->
+				<input type="hidden" id="admNum" th:value="${ adminDTO.admNum }" />
+				
+				<!-- 이름 -->
+				<label for="name">이름 <span class="required">*</span></label>
+				<input id="name" type="text" th:value="${ adminDTO.name }" maxlength="10" class="form-input" /><div id="error-message" class="error-message"></div>
+				
+				<!-- 전화번호 -->
+				<label for="tel">전화번호</label>
+				<input id="tel" type="text" th:value="${ adminDTO.tel }" maxlength="11" class="form-input"  /><div id="error-message" class="error-message"></div>
+
+				<div class="account-form-section">계정정보</div>
+				
+				<!-- 아이디 -->
+		        <label for="id">아이디 <span class="required">*</span></label>
+		        <input id="id" type="text" th:value="${ adminDTO.id }" maxlength="15" class="form-input" /><div id="error-message" class="error-message"></div>
+		        
+		        <!-- 비밀번호 -->    
+		        <label for="pass">비밀번호</label>
+		        <input id="pass" type="hidden" th:value="${ adminDTO.pass }" class="form-input" />
+		        <button type="button" id="btnPassReset" class="action-button">비밀번호 초기화</button><br>
+		        
+		        <div class="account-form-section">가입 정보</div>
+		        
+		        <!-- 가입일 -->
+		        <label for="reg-date">가입일</label>
+		        <input id="reg-date" type="date" th:value="${ adminDTO.inputDate }" class="status-badge status-visible" readonly="readonly" /><br>
+		
+				<!-- 계정타입 -->
+		        <label>계정타입</label>
+		        <div>
+					<input type="radio" name="roll" value="2" th:checked="${ adminDTO.rollType == 2 }" />
+		           	<label>일반 관리자</label>
+		            <input type="radio" name="roll" value="1"  th:checked="${ adminDTO.rollType == 1 }" />
+		            <label>총괄 관리자</label>
+		        </div>
+		        
+				<!-- 정지여부 -->
+		        <label>정지여부</label>
+		        <div>
+					<input type="radio" name="ban" value="Y" th:checked="${ adminDTO.banType == 'Y' }" />
+		           	<label>정지</label>
+		            <input type="radio" name="ban" value="N"  th:checked="${ adminDTO.banType == 'N' }" />
+		            <label>미정지</label>
+		        </div>
+		          
+		        <!-- 정지일 -->
+		        <div th:if="${ adminDTO.banType == 'Y' }">
+		        	<label for="ban-date">정지일</label>
+		        	<input id="ban-date" type="date" th:value="${ adminDTO.banDate }" class="status-badge status-visible" readonly="readonly" />
+		        </div>
+		        
+				<!-- 폼 액션 -->
+				<div class="form-actions">
+					<button type="button" id="btnModify" class="submit-btn">수정</button>
+		            <button type="button" id="btnBack" class="cancel-btn">뒤로가기</button>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	<!-- 사이드바 동작 스크립트 -->
+	<script th:src="@{/js/admin/script.js}" defer></script>
+	<!-- 버튼 동작 스크립트 -->
+	<script th:src="@{/js/admin/account/adminModify.js}" defer></script>
+</body>
+
+</html>
