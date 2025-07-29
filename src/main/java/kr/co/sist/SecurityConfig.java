@@ -51,12 +51,12 @@ public class SecurityConfig {
                         response.setContentType("application/json");
                         response.getWriter().write("{\"error\":\"인증이 필요합니다\"}");
                     } else {
-                        response.sendRedirect("http://211.63.89.155/login");
+                        response.sendRedirect("http://localhost:8080/login");
                     }
                 })
                 // 인증은 됐지만 권한이 없는 경우 → 로그인 페이지로 리다이렉트
                 .accessDeniedHandler((request, response, accessDeniedException) ->
-                    response.sendRedirect("http://211.63.89.155/login")
+                    response.sendRedirect("http://localhost:8080/login")
                 )
             )
             // JwtFilter를 UsernamePasswordAuthenticationFilter 전에 등록
